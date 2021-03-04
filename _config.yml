@@ -18,3 +18,6 @@ plugins:
   - jemoji
   - jekyll-avatar
   - jekyll-mentions
+
+sass:
+  sass_dir: _includes/extra

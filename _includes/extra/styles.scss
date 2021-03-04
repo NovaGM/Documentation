@@ -1,0 +1,118 @@
+@import "syntax.scss";
+
+:root {
+    --background: #0F1419;
+    --background2: #14191F;
+    --background3: #24292F;
+    --text: #C9D1D9;
+    --active: #606060;
+    --accent: #39AFD7;
+
+    --toc-1: #24292F;
+    --toc-2: #282D33;
+    --toc-3: #2C3137;
+    --toc-4: #30353B;
+    --toc-5: #34393F;
+    --toc-6: #383D43;
+    --toc-7: #3C4147;
+    --toc-8: #40454B;
+    --toc-9: #44494F;
+    --toc-10: #484D53;
+    --toc-11: #4C5157;
+    --toc-12: #50555B;
+}
+
+
+.sidebar {
+    background: var(--background2) !important;
+
+    .header {
+        background: var(--background3);
+
+        input {
+            border-color: var(--accent) !important;
+            background: var(--background2) !important;
+        }
+    }
+
+    .toctree {
+        a {
+            color: var(--text) !important;
+
+            &.current {
+                background: var(--active) !important;
+            }
+        }
+
+        .caption {
+            color: var(--accent) !important;
+        }
+    }
+}
+
+body,
+.content-wrap {
+    background: var(--background) !important;
+    color: var(--text) !important;
+}
+
+a,
+.markdown-body a {
+    color: var(--accent);
+}
+
+.breadcrumb-item-selected,
+.breadcrumb-item[aria-current]:not([aria-current="false"]) {
+    color: var(--active) !important;
+}
+
+.btn {
+    background: var(--background3);
+    color: var(--text) !important;
+
+    &:hover {
+        background: #34393F;
+    }
+}
+
+code.highlighter-rouge {
+    background: var(--background3) !important;
+}
+
+.toasts {
+    &.note {
+        background: darken($color: #E7F2FA, $amount: 80%);
+        color: var(--text);
+
+        .title {
+            background: darken($color: #6AB0DE, $amount: 40%);
+        }
+    }
+
+    &.tip {
+        background: darken($color: #DBFAF4, $amount: 80%);
+        color: var(--text);
+
+        .title {
+            background: darken($color: #1ABC9C, $amount: 20%);
+        }
+    }
+
+    &.warning {
+        background: darken($color: #FBE9D9, $amount: 80%);
+        color: var(--text);
+
+        .title {
+            background: darken($color: #F0B37E, $amount: 40%);
+        }
+    }
+
+    &.danger {
+        background: darken($color: #FDF3F2, $amount: 80%);
+        color: var(--text);
+
+        .title {
+            background: darken($color: #F29F97, $amount: 40%);
+        }
+    }
+}
