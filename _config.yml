@@ -1,12 +1,12 @@
 title: GM User Docs
-email: your-email@example.com
+email: hades785@gmail.com
 description: >-
   A collection of user made documentation entries for the GooseMod Discord
   modification.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/Documentation" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: hades785
+github_username:  hades785
 
 # theme: jekyll-rtd-theme
 remote_theme: rundocs/jekyll-rtd-theme
