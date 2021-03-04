@@ -281,19 +281,19 @@ The colour picker doesn't support alpha channel (opacity) yet.
 ### Card field
 
 ```warning
-Not yet experimented with or duocumented. 
+Not yet experimented with or documented. 
 ```
 
 ### Search field
 
 ```warning
-Not yet experimented with or duocumented. 
+Not yet experimented with or documented. 
 ```
 
 ### Sidebar field
 
 ```warning
-Not yet experimented with or duocumented. 
+Not yet experimented with or documented. 
 ```
 
 ### Custom field
