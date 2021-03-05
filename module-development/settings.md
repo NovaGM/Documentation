@@ -11,7 +11,6 @@ The GooseMod settings interface can be accessed in your modules by importing
 `@goosemod/settings`. You can extend Discord's settings with more categories,
 pages, and other elements by importing the right procedures.
 
-
 ## Adding a new settings page
 
 When GooseMod loads all modules, it first creates a new category called
@@ -26,14 +25,16 @@ Do remember to remove the settings pages you add when your module gets disabled
 though.
 
 First import `createItem`:
+
 ```js
 import { createItem } from '@goosemod/settings';
 ```
 
 Then in your module's `onLoadingFinished`, call to `createItem` like this:
+
 ```js
-createItem("Page name", [
-  "version",
+createItem('Page name', [
+  'version',
   // field objects
 ]);
 ```
@@ -47,15 +48,16 @@ restore the state of Discord prior to when it was enabled.
 removing one is even easier.
 
 First add `removeItem` to your imports from `@goosemod/settings`:
+
 ```js
 import { createItem, removeItem } from '@goosemod/settings';
 ```
 
 Then in your module's `onRemove`, call to `removeItem` like so:
-```js
-removeItem("Page name");
-```
 
+```js
+removeItem('Page name');
+```
 
 ## Types of settings fields
 
@@ -65,6 +67,7 @@ a `text` property defining the field's text.
 Most fields also have a `subtext` property to add additional information if
 needed, for example: precising the default values of your settings. The way
 you would define a fields subtext is like so:
+
 ```js
 {
   // field definition elements
@@ -77,19 +80,20 @@ you would define a fields subtext is like so:
 
 A simple divider to separate your fields. Most other fields already add a
 divider, so needing one is a more specific use case. They are defined like so:
+
 ```js
 {
-  type: "divider"
+  type: 'divider';
 }
 ```
 
 ```note
-Divider fields **do not** use the `subtext` property. However they have a 
+Divider fields **do not** use the `subtext` property. However they have a
 `text` property.
 ```
 
 ```warning
-The divider field's `text` property has not yet been experimented with 
+The divider field's `text` property has not yet been experimented with
 and documented.
 ```
 
@@ -97,6 +101,7 @@ and documented.
 
 Header fields let you make categories in your settings page, they are defined
 like so:
+
 ```js
 {
   type: "header",
@@ -111,6 +116,7 @@ Header fields do not use the `subtext` property.
 ### Text field
 
 Text fields let you write text without user controls, they are defined like so:
+
 ```js
 {
   type: "text",
@@ -122,6 +128,7 @@ Text fields let you write text without user controls, they are defined like so:
 
 Button fields let you add simple buttons to launch actions, they are defined
 like so:
+
 ```js
 {
   type: "button",
@@ -137,9 +144,9 @@ Buttons do not use the `subtext` property.
 ```
 
 ```note
-Button fields are pretty bare and only simple buttons. If you use them, you may 
-want to add a [text field](#text-field) before to explain their function and a 
-[divider field](#divider-field) afterwards to properly separate them from the 
+Button fields are pretty bare and only simple buttons. If you use them, you may
+want to add a [text field](#text-field) before to explain their function and a
+[divider field](#divider-field) afterwards to properly separate them from the
 following fields.
 ```
 
@@ -151,7 +158,8 @@ Given that button fields are so bare, I'd recommend using
 #### Text-Button field
 
 A regular [text field](#text-field) with a smaller [button](#button-field).
-They are defined like so: 
+They are defined like so:
+
 ```js
 {
   type: "text-and-button",
@@ -164,7 +172,7 @@ They are defined like so:
 ```
 
 ```note
-Unlike [button fields](#button-field), text-button fields include a 
+Unlike [button fields](#button-field), text-button fields include a
 [divider field](#divider-field), so you don't need to add one after.
 ```
 
@@ -172,6 +180,7 @@ Unlike [button fields](#button-field), text-button fields include a
 
 Exactly like the [text-button field](#text-button-field), but the button has
 the danger styling (red). They are defined like so:
+
 ```js
 {
   type: "text-and-danger-button",
@@ -184,7 +193,7 @@ the danger styling (red). They are defined like so:
 ```
 
 ```note
-Due to the design language surrounding them, you should only use these if the 
+Due to the design language surrounding them, you should only use these if the
 action could have impactful consequences.
 ```
 
@@ -192,6 +201,7 @@ action could have impactful consequences.
 
 Toggle fields let you make on/off switches for your basic settings, they are
 defined like so:
+
 ```js
 {
   type: "toggle",
@@ -211,6 +221,7 @@ defined like so:
 A [toggle field](#toggle-field) with a small [button](#button-field), or a
 [text-button field](#text-button-field) with a [toggle switch](#toggle-field).
 They are defined like so:
+
 ```js
 {
   type: "toggle-text-button",
@@ -229,10 +240,11 @@ They are defined like so:
 }
 ```
 
-#### Toggle-Text-Button-Danger 
+#### Toggle-Text-Button-Danger
 
 Exactly like the [toggle-text-button field](#toggle-text-button-field), but
 the button has the danger styling (red). They are defined like so:
+
 ```js
 {
   type: "toggle-text-danger-button",
@@ -252,7 +264,7 @@ the button has the danger styling (red). They are defined like so:
 ```
 
 ```note
-Due to the design language surrounding them, you should only use these if the 
+Due to the design language surrounding them, you should only use these if the
 action could have impactful consequences.
 ```
 
@@ -260,6 +272,7 @@ action could have impactful consequences.
 
 Colour fields let you make colour pickers for your settings, they are defined
 like so:
+
 ```js
 {
   type: "text-and-color",
@@ -281,25 +294,26 @@ The colour picker doesn't support alpha channel (opacity) yet.
 ### Card field
 
 ```warning
-Not yet experimented with or documented. 
+Not yet experimented with or documented.
 ```
 
 ### Search field
 
 ```warning
-Not yet experimented with or documented. 
+Not yet experimented with or documented.
 ```
 
 ### Sidebar field
 
 ```warning
-Not yet experimented with or documented. 
+Not yet experimented with or documented.
 ```
 
 ### Custom field
 
 Custom fields only support a single property: `element`. They are defined like
 so:
+
 ```js
 {
   type: "custom",
@@ -313,6 +327,7 @@ so:
 ```
 
 ```note
-Custom fields can be used to make any kind of field that is not built into 
-GooseMod. For example, [here is a procedure building a text input field](https://github.com/KeanuGooseMod/Modules/blob/master/settings-experiment/custom-settings.js#L1-L57).
+Custom fields can be used to make any kind of field that is not built into
+GooseMod. For example, [here is a procedure building a text input field](https://github.com/NovaGM/Modules/blob/master/settings-experiment/custom-settings.js#L1-L57).
 ```
+
