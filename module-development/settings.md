@@ -328,6 +328,6 @@ so:
 
 ```note
 Custom fields can be used to make any kind of field that is not built into
-GooseMod. For example, [here is a procedure building a text input field](https://github.com/NovaGM/Modules/blob/master/settings-experiment/custom-settings.js#L1-L57).
+GooseMod. For example, [here is a procedure building a text input field](https://github.com/NovaGM/Modules/blob/master/settings-experiment/custom-settings.js#L1).
 ```
 
