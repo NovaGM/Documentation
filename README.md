@@ -47,7 +47,7 @@ sort: <number>
 Before pushing your edits to the documentation, you may want to see what they
 look like. To do so, you need to:
 
-- have a local [Ruby](https://www.ruby-lang.org) environment
+- have a local [Ruby](https://www.ruby-lang.org) 2.7 environment
 - install the `bundler` and `jekyll` gems
   `gem install bundler jekyll`
 - install this project's specific requirements:
