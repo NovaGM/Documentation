@@ -276,10 +276,6 @@ Text input fields let you get text input for more complex needs. They are define
 }
 ```
 
-```warning
-Not yet experimented with.
-```
-
 ### Custom field
 
 Custom fields only support a single property: `element`. They are defined like so:
@@ -338,8 +334,8 @@ Defined [here](https://github.com/GooseMod/GooseMod/blob/master/src/ui/settings.
 Not yet experimented with or documented.
 ```
 
-### Dropdown fields
-#### Dropdown field
+#### Dropdown fields
+##### Dropdown field
 
 Dropdown field to offer multipple defined choices. Can be seen in the GooseMod settings page, to force select a language.
 
@@ -348,7 +344,7 @@ Defined [here](https://github.com/GooseMod/GooseMod/blob/master/src/ui/settings.
 ```warning
 Not yet experimented with or documented.
 ```
-#### Inline dropdown field
+##### Inline dropdown field
 
 Dropdown field to offer multipple defined choices, designed to be used side by side. Can be seen in the module and theme stores.
 
