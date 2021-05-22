@@ -7,22 +7,15 @@ sort: 2
 
 ## Accessing the GooseMod settings interface
 
-The GooseMod settings interface can be accessed in your modules by importing
-`@goosemod/settings`. You can extend Discord's settings with more categories,
-pages, and other elements by importing the right procedures.
+The GooseMod settings interface can be accessed in your modules by importing `@goosemod/settings`. You can extend Discord's settings with more categories, pages, and other elements by importing the right procedures.
 
 ## Adding a new settings page
 
-When GooseMod loads all modules, it first creates a new category called
-`GooseMod Modules`, so that all modules thereafter add their settings under
-this category by default.
+When GooseMod loads all modules, it first creates a new category called `GooseMod Modules`, so that all modules thereafter add their settings under this category by default.
 
-Adding your own settings page is pretty straightforward: once your module has
-been completely loaded it will call its defined `onLoadingFinished` prodedure,
-all that's needed to add a page is call `createItem` from the settings import.
+Adding your own settings page is pretty straightforward: once your module has been completely loaded it will call its defined `onLoadingFinished` prodedure, all that's needed to add a page is call `createItem` from the settings import.
 
-Do remember to remove the settings pages you add when your module gets disabled
-though.
+Do remember to remove the settings pages you add when your module gets disabled though.
 
 First import `createItem`:
 
@@ -41,11 +34,9 @@ createItem('Page name', [
 
 ## Removing a settings page
 
-When your module is disabled, it should undo all modifications made, to
-restore the state of Discord prior to when it was enabled.
+When your module is disabled, it should undo all modifications made, to restore the state of Discord prior to when it was enabled.
 
-[Adding a settings page](#adding-a-new-settings-page) was easy enough, but
-removing one is even easier.
+[Adding a settings page](#adding-a-new-settings-page) was easy enough, but removing one is even easier.
 
 First add `removeItem` to your imports from `@goosemod/settings`:
 
@@ -61,12 +52,9 @@ removeItem('Page name');
 
 ## Types of settings fields
 
-Settings fields are objects, each having a `type` property defining its type,
-a `text` property defining the field's text.
+Settings fields are objects, each having a `type` property defining its type, a `text` property defining the field's text.
 
-Most fields also have a `subtext` property to add additional information if
-needed, for example: precising the default values of your settings. The way
-you would define a fields subtext is like so:
+Most fields also have a `subtext` property to add additional information if needed, for example: precising the default values of your settings. The way you would define a fields subtext is like so:
 
 ```js
 {
@@ -78,8 +66,7 @@ you would define a fields subtext is like so:
 
 ### Divider field
 
-A simple divider to separate your fields. Most other fields already add a
-divider, so needing one is a more specific use case. They are defined like so:
+A simple divider to separate your fields. Most other fields already add a divider, so needing one is a more specific use case. They are defined like so:
 
 ```js
 {
@@ -88,19 +75,16 @@ divider, so needing one is a more specific use case. They are defined like so:
 ```
 
 ```note
-Divider fields **do not** use the `subtext` property. However they have a
-`text` property.
+Divider fields **do not** use the `subtext` property. However they have a `text` property.
 ```
 
 ```warning
-The divider field's `text` property has not yet been experimented with
-and documented.
+The divider field's `text` property has not yet been experimented with and documented.
 ```
 
 ### Header field
 
-Header fields let you make categories in your settings page, they are defined
-like so:
+Header fields let you make categories in your settings page, they are defined like so:
 
 ```js
 {
@@ -126,8 +110,7 @@ Text fields let you write text without user controls, they are defined like so:
 
 ### Button field
 
-Button fields let you add simple buttons to launch actions, they are defined
-like so:
+Button fields let you add simple buttons to launch actions, they are defined like so:
 
 ```js
 {
@@ -144,15 +127,11 @@ Buttons do not use the `subtext` property.
 ```
 
 ```note
-Button fields are pretty bare and only simple buttons. If you use them, you may
-want to add a [text field](#text-field) before to explain their function and a
-[divider field](#divider-field) afterwards to properly separate them from the
-following fields.
+Button fields are pretty bare and only simple buttons. If you use them, you may want to add a [text field](#text-field) before to explain their function and a [divider field](#divider-field) afterwards to properly separate them from the following fields.
 ```
 
 ```tip
-Given that button fields are so bare, I'd recommend using
-[text-button fields](#text-button-field) in most cases.
+Given that button fields are so bare, [text-button fields](#text-button-field) may be more appropriate for your use case.
 ```
 
 #### Text-Button field
@@ -172,14 +151,12 @@ They are defined like so:
 ```
 
 ```note
-Unlike [button fields](#button-field), text-button fields include a
-[divider field](#divider-field), so you don't need to add one after.
+Unlike [button fields](#button-field), text-button fields include a [divider field](#divider-field), so you don't need to add one after.
 ```
 
 #### Text-Button-Danger field
 
-Exactly like the [text-button field](#text-button-field), but the button has
-the danger styling (red). They are defined like so:
+Exactly like the [text-button field](#text-button-field), but the button has the danger styling (red). They are defined like so:
 
 ```js
 {
@@ -193,14 +170,12 @@ the danger styling (red). They are defined like so:
 ```
 
 ```note
-Due to the design language surrounding them, you should only use these if the
-action could have impactful consequences.
+Due to the design language surrounding them, you should only use these if the action could have impactful consequences.
 ```
 
 ### Toggle field
 
-Toggle fields let you make on/off switches for your basic settings, they are
-defined like so:
+Toggle fields let you make on/off switches for your basic settings, they are defined like so:
 
 ```js
 {
@@ -218,9 +193,7 @@ defined like so:
 
 #### Toggle-Text-Button field
 
-A [toggle field](#toggle-field) with a small [button](#button-field), or a
-[text-button field](#text-button-field) with a [toggle switch](#toggle-field).
-They are defined like so:
+A [toggle field](#toggle-field) with a small [button](#button-field), or a [text-button field](#text-button-field) with a [toggle switch](#toggle-field). They are defined like so:
 
 ```js
 {
@@ -242,8 +215,7 @@ They are defined like so:
 
 #### Toggle-Text-Button-Danger
 
-Exactly like the [toggle-text-button field](#toggle-text-button-field), but
-the button has the danger styling (red). They are defined like so:
+Exactly like the [toggle-text-button field](#toggle-text-button-field), but the button has the danger styling (red). They are defined like so:
 
 ```js
 {
@@ -264,14 +236,12 @@ the button has the danger styling (red). They are defined like so:
 ```
 
 ```note
-Due to the design language surrounding them, you should only use these if the
-action could have impactful consequences.
+Due to the design language surrounding them, you should only use these if the action could have impactful consequences.
 ```
 
 ### Colour field
 
-Colour fields let you make colour pickers for your settings, they are defined
-like so:
+Colour fields let you make colour pickers for your settings, they are defined like so:
 
 ```js
 {
@@ -291,43 +261,109 @@ like so:
 The colour picker doesn't support alpha channel (opacity) yet.
 ```
 
-### Card field
+### Text input field
 
-```warning
-Not yet experimented with or documented.
+Text input fields let you get text input for more complex needs. They are defined like so:
+
+```js
+{
+  type: "text-input",
+  text: "Description",
+  initialValue: () => "Initial value",
+  oninput: (value, element) => {
+    // Do something.
+  }
+}
 ```
 
-### Search field
-
 ```warning
-Not yet experimented with or documented.
-```
-
-### Sidebar field
-
-```warning
-Not yet experimented with or documented.
+Not yet experimented with.
 ```
 
 ### Custom field
 
-Custom fields only support a single property: `element`. They are defined like
-so:
+Custom fields only support a single property: `element`. They are defined like so:
 
 ```js
 {
   type: "custom",
-  element: (() => {
+  element: () => {
     // Return a DOM element
     let e = document.createElement("span");
     e.innerText = "Custom Element";
     return e;
-  })()
+  }
 }
 ```
 
 ```note
-Custom fields can be used to make any kind of field that is not built into
-GooseMod. For example, [here is a procedure building a text input field](https://github.com/NovaGM/Modules/blob/master/settings-experiment/custom-settings.js#L1).
+`element` can be a DOM element or a function that will be called and expected to return the element.
 ```
 
+```note
+Custom fields can be used to make any kind of field that is not built into GooseMod.
+
+For example, [here is a procedure building a text input field](https://github.com/NovaGM/Modules/blob/master/comfy-theme/custom-settings.js#L1) made when there was no [text input field](#text-input) yet.
+```
+
+### Internal fields
+
+These fields are used internally by GooseMod for specific uses. You may reuse them, but you'll want to do your own research and testing.
+
+#### Card field
+
+Can be seen in the module and theme stores, each entry has a card.
+
+Defined [here](https://github.com/GooseMod/GooseMod/blob/master/src/ui/settings.js#L697-L1126).
+
+```warning
+Not yet experimented with or documented.
+```
+
+#### Search field
+
+Can be seen in the module and theme stores.
+
+Defined [here](https://github.com/GooseMod/GooseMod/blob/master/src/ui/settings.js#L1128-L1203).
+
+```warning
+Not yet experimented with or documented.
+```
+
+#### Sidebar field
+
+Defined [here](https://github.com/GooseMod/GooseMod/blob/master/src/ui/settings.js#L1205-L1309).
+
+```warning
+Not yet experimented with or documented.
+```
+
+### Dropdown fields
+#### Dropdown field
+
+Dropdown field to offer multipple defined choices. Can be seen in the GooseMod settings page, to force select a language.
+
+Defined [here](https://github.com/GooseMod/GooseMod/blob/master/src/ui/settings.js#L1450-L1520).
+
+```warning
+Not yet experimented with or documented.
+```
+#### Inline dropdown field
+
+Dropdown field to offer multipple defined choices, designed to be used side by side. Can be seen in the module and theme stores.
+
+Defined [here](https://github.com/GooseMod/GooseMod/blob/master/src/ui/settings.js#L1392-L1448).
+
+```warning
+Not yet experimented with or documented.
+```
+
+#### GM footer
+
+Footer for the GooseMod settings page.
+
+Defined [here](https://github.com/GooseMod/GooseMod/blob/master/src/ui/settings.js#L1321-L1390).
+
+```note
+Not intended for use in modules.
+```
